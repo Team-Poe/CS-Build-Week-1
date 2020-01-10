@@ -1,58 +1,686 @@
 from django.contrib.auth.models import User
 from adventure.models import Player, Room
-from adventure.dungeon_maker import Dungeon
 
-try:
-    Room.objects.all().delete()
-except:
-    pass
+Room.objects.all().delete()
+
+r_001 = Room(title='The Lobby', description="Quiet, spacious. Whoever owns this place must be rich.")
+r_002 = Room(title='The Dining Room', description="Enough to seat at least 100 people, who would need a dining room this big?")
+r_003 = Room(title='The Library', description='I didn’t know anybody read anymore.')
+r_004 = Room(title='Bedroom 1', description="Blue walls, two cradles, this must be a baby room.")
+r_005 = Room(title='The Music room', description="A grand piano sits in the middle of the room, music seems to be playing on its own...")
+r_006 = Room(title='The Study', description="Who needs a study when you already have a library?")
+r_007 = Room(title='The Office', description='Who needs a library if you already have an office?!')
+r_008 = Room(title='The Kitchen', description="I wonder if they would mind if I cooked something to eat in here...")
+r_009 = Room(title='Bedroom 2', description='Rather plain, if I had to guess, this would be the guest bedroom.')
+r_010 = Room(title='Bathroom 1', description="Well, I don’t need to use it anymore...")
+r_011 = Room(title='The Gold Ballroom', description="Snow everywhere. There's also a pack of wolves roaming around.")
+r_012 = Room(title='The Game Room', description="There’s billiards, darts, but no time to play when I’m already practically playing clue.")
+r_013 = Room(title='The Exercise Room', description='No thanks, I’m practically dripping sweat just by being here.')
+r_014 = Room(title='The Pool Room', description="Didn’t I already see a pool outside when I walked in?")
+r_015 = Room(title='The Hallway', description="I’ve been walking in a straight line for so long it feels like I’m walking in a spiral...")
+r_016 = Room(title='The Armory', description="There’s guns and swords, what would you need all that for?.")
+r_017 = Room(title='The Shooting Range', description='Well, I guess this is where they test out their stuff from the armory.')
+r_018 = Room(title='Bedroom 3', description="Painted bright orange, with a huge bed in the middle of the room and nothing else.")
+r_019 = Room(title='The Observatory', description='Have never been one for sciencey things, myself.')
+r_020 = Room(title='The Green Room', description="These plants are alive, someone has to be around to maintain them.")
+r_021 = Room(title='The Pantry', description="A lot of moldy bread, the smell is unbearable.")
+r_022 = Room(title='The Drawing Room', description="A blank canvas and an empty chair sits in the middle of the room.")
+r_023 = Room(title='The Art Gallery', description='I wonder who painted these...they’re not very good.')
+r_024 = Room(title='Bathroom 2', description="No thanks, I already went.")
+r_025 = Room(title='The Wine Cellar', description="Best not to drink while on the job.")
+r_026 = Room(title='Closet 1', description="This closet is about the size of my bedroom at home!")
+r_027 = Room(title='The Master Bedroom', description='I bet this room is bigger than most peoples homes, I don’t think I’m alone in here.')
+r_028 = Room(title='Bedroom 4', description="White walls, the room is empty but the outlines of where furniture used to be, stain the walls and floor.")
+r_029 = Room(title='The Surveillance Room', description='The first time I’ve seen a screen in this whole house, and this wall is full of them, they’re all just static though.')
+r_030 = Room(title='Closet 2', description="Nothing but towels in here.")
+r_031 = Room(title='Bathroom 3', description="This would’ve been useful earlier.")
+r_032 = Room(title='The Alphabet Room', description="Christmas lights adorn the wall, under each light is a letter. Strange.")
+r_033 = Room(title='The Light Room', description='I suppose during the day this is where you’d go to see some sun, now its more like The Twilight Zone.')
+r_034 = Room(title='The Laundry Room', description="No washing machine nor dryer, just buckets and washing boards.")
+r_035 = Room(title='Closet 3', description="Lots of nice suits and shoes, all hung up and proper, whoever this guy was, he had some taste.")
+r_036 = Room(title='The Diorama Room', description="In the middle of the room is a large glass case with a bunch of toy soldiers, looks like it's supposed to be The Great War.")
+r_037 = Room(title='The Theater Room', description='A big screen with a projector in the back, uses good old fashioned film.')
+r_038 = Room(title='The Card Room', description="Nothing in the room except a table with a house of cards in the middle. Odd.")
+r_039 = Room(title='The Boxing Room', description='Another gymnasium, except with a small boxing ring in the middle, gotta get those frustrations out somehow.')
+r_040 = Room(title='The Bird Room', description="An empty room with a small box in the middle, it almost sounds like there's a bird chirping in there.")
+r_041 = Room(title='The Lobby(2)', description="Quiet, spacious. Whoever owns this place must be rich.(2)")
+r_042 = Room(title='The Dininr_000 = Room(2)', description="Enough to seat at least 100 people, who would need a dining room this big?(2)")
+r_043 = Room(title='The Library(2)', description='I didn’t know anybody read anymore.(2)')
+r_044 = Room(title='Bedroom 1(2)', description="Blue walls, two cradles, this must be a baby room.(2)")
+r_045 = Room(title='The Musir_000 = room(2)', description="A grand piano sits in the middle of the room, music seems to be playing on its own...(2)")
+r_046 = Room(title='The Study(2)', description="Who needs a study when you already have a library?(2)")
+r_047 = Room(title='The Office(2)', description='Who needs a library if you already have an office?!(2)')
+r_048 = Room(title='The Kitchen(2)', description="I wonder if they would mind if I cooked something to eat in here...(2)")
+r_049 = Room(title='Bedroom 2(2)', description='Rather plain, if I had to guess, this would be the guest bedroom.(2)')
+r_050 = Room(title='Bathroom 1(2)', description="Well, I don’t need to use it anymore...(2)")
+r_051 = Room(title='The Gold Bar_000 =lroom(2)', description="Snow everywhere. There's also a pack of wolves roaming around.(2)")
+r_052 = Room(title='The Gamr_000 = Room(2)', description="There’s billiards, darts, but no time to play when I’m already practically playing clue.(2)")
+r_053 = Room(title='The Exercisr_000 = Room(2)', description='No thanks, I’m practically dripping sweat just by being here.(2)')
+r_054 = Room(title='The Poor_000 = Room(2)', description="Didn’t I already see a pool outside when I walked in?(2)")
+r_055 = Room(title='The Hallway(2)', description="I’ve been walking in a straight line for so long it feels like I’m walking in a spiral...(2)")
+r_056 = Room(title='The Armory(2)', description="There’s guns and swords, what would you need all that for?.(2)")
+r_057 = Room(title='The Shooting Range(2)', description='Well, I guess this is where they test out their stuff from the armory.(2)')
+r_058 = Room(title='Bedroom 3(2)', description="Painted bright orange, with a huge bed in the middle of the room and nothing else.(2)")
+r_059 = Room(title='The Observatory(2)', description='Have never been one for sciencey things, myself.(2)')
+r_060 = Room(title='The Greer_000 = Room(2)', description="These plants are alive, someone has to be around to maintain them.(2)")
+r_061 = Room(title='The Pantry(2)', description="A lot of moldy bread, the smell is unbearable.(2)")
+r_062 = Room(title='The Drawinr_000 = Room(2)', description="A blank canvas and an empty chair sits in the middle of the room.(2)")
+r_063 = Room(title='The Art Gallery(2)', description='I wonder who painted these...they’re not very good.(2)')
+r_064 = Room(title='Bathroom 2(2)', description="No thanks, I already went.(2)")
+r_065 = Room(title='The Wine Cellar(2)', description="Best not to drink while on the job.(2)")
+r_066 = Room(title='Closet 1(2)', description="This closet is about the size of my bedroom at home!(2)")
+r_067 = Room(title='The Master Br_000 =droom(2)', description='I bet this room is bigger than most peoples homes, I don’t think I’m alone in here.(2)')
+r_068 = Room(title='Bedroom 4(2)', description="White walls, the room is empty but the outlines of where furniture used to be, stain the walls and floor.(2)")
+r_069 = Room(title='The Surveillancr_000 = Room(2)', description='The first time I’ve seen a screen in this whole house, and this wall is full of them, they’re all just static though.(2)')
+r_070 = Room(title='Closet 2(2)', description="Nothing but towels in here.(2)")
+r_071 = Room(title='Bathroom 3(2)', description="This would’ve been useful earlier.(2)")
+r_072 = Room(title='The Alphaber_000 = Room(2)', description="Christmas lights adorn the wall, under each light is a letter. Strange.(2)")
+r_073 = Room(title='The Lighr_000 = Room(2)', description='I suppose during the day this is where you’d go to see some sun, now its more like The Twilight Zone.(2)')
+r_074 = Room(title='The Laundrr_000 = Room(2)', description="No washing machine nor dryer, just buckets and washing boards.(2)")
+r_075 = Room(title='Closet 3(2)', description="Lots of nice suits and shoes, all hung up and proper, whoever this guy was, he had some taste.(2)")
+r_076 = Room(title='The Dioramr_000 = Room(2)', description="In the middle of the room is a large glass case with a bunch of toy soldiers, looks like it's supposed to be The Great War.(2)")
+r_077 = Room(title='The Theater_000 = Room(2)', description='A big screen with a projector in the back, uses good old fashioned film.(2)')
+r_078 = Room(title='The Carr_000 = Room(2)', description="Nothing in the room except a table with a house of cards in the middle. Odd.(2)")
+r_079 = Room(title='The Boxinr_000 = Room(2)', description='Another gymnasium, except with a small boxing ring in the middle, gotta get those frustrations out somehow.(2)')
+r_080 = Room(title='The Birr_000 = Room(2)', description="An empty room with a small box in the middle, it almost sounds like there's a bird chirping in there.(2)")
+r_081 = Room(title='The Lobby(3)', description="Quiet, spacious. Whoever owns this place must be rich.(3)")
+r_082 = Room(title='The Dininr_000 = Room(3)', description="Enough to seat at least 100 people, who would need a dining room this big?(3)")
+r_083 = Room(title='The Library(3)', description='I didn’t know anybody read anymore.(3)')
+r_084 = Room(title='Bedroom 1(3)', description="Blue walls, two cradles, this must be a baby room.(3)")
+r_085 = Room(title='The Musir_000 = room(3)', description="A grand piano sits in the middle of the room, music seems to be playing on its own...(3)")
+r_086 = Room(title='The Study(3)', description="Who needs a study when you already have a library?(3)")
+r_087 = Room(title='The Office(3)', description='Who needs a library if you already have an office?!(3)')
+r_088 = Room(title='The Kitchen(3)', description="I wonder if they would mind if I cooked something to eat in here...(3)")
+r_089 = Room(title='Bedroom 2(3)', description='Rather plain, if I had to guess, this would be the guest bedroom.(3)')
+r_090 = Room(title='Bathroom 1(3)', description="Well, I don’t need to use it anymore...(3)")
+r_091 = Room(title='The Gold Bar_000 =lroom(3)', description="Snow everywhere. There's also a pack of wolves roaming around.(3)")
+r_092 = Room(title='The Gamr_000 = Room(3)', description="There’s billiards, darts, but no time to play when I’m already practically playing clue.(3)")
+r_093 = Room(title='The Exercisr_000 = Room(3)', description='No thanks, I’m practically dripping sweat just by being here.(3)')
+r_094 = Room(title='The Poor_000 = Room(3)', description="Didn’t I already see a pool outside when I walked in?(3)")
+r_095 = Room(title='The Hallway(3)', description="I’ve been walking in a straight line for so long it feels like I’m walking in a spiral...(3)")
+r_096 = Room(title='The Armory(3)', description="There’s guns and swords, what would you need all that for?.(3)")
+r_097 = Room(title='The Shooting Range(3)', description='Well, I guess this is where they test out their stuff from the armory.(3)')
+r_098 = Room(title='Bedroom 3(3)', description="Painted bright orange, with a huge bed in the middle of the room and nothing else.(3)")
+r_099 = Room(title='The Observatory(3)', description='Have never been one for sciencey things, myself.(3)')
+r_100 = Room(title='The Greer_000 = Room(3)', description="These plants are alive, someone has to be around to maintain them.(3)")
+
+r_001.save()
+r_002.save()
+r_003.save()
+r_004.save()
+r_005.save()
+r_006.save()
+r_007.save()
+r_008.save()
+r_009.save()
+r_010.save()
+r_011.save()
+r_012.save()
+r_013.save()
+r_014.save()
+r_015.save()
+r_016.save()
+r_017.save()
+r_018.save()
+r_019.save()
+r_020.save()
+r_021.save()
+r_022.save()
+r_023.save()
+r_024.save()
+r_025.save()
+r_026.save()
+r_027.save()
+r_028.save()
+r_029.save()
+r_030.save()
+r_031.save()
+r_032.save()
+r_033.save()
+r_034.save()
+r_035.save()
+r_036.save()
+r_037.save()
+r_038.save()
+r_039.save()
+r_040.save()
+r_041.save()
+r_042.save()
+r_043.save()
+r_044.save()
+r_045.save()
+r_046.save()
+r_047.save()
+r_048.save()
+r_049.save()
+r_050.save()
+r_051.save()
+r_052.save()
+r_053.save()
+r_054.save()
+r_055.save()
+r_056.save()
+r_057.save()
+r_058.save()
+r_059.save()
+r_060.save()
+r_061.save()
+r_062.save()
+r_063.save()
+r_064.save()
+r_065.save()
+r_066.save()
+r_067.save()
+r_068.save()
+r_069.save()
+r_070.save()
+r_071.save()
+r_072.save()
+r_073.save()
+r_074.save()
+r_075.save()
+r_076.save()
+r_077.save()
+r_078.save()
+r_079.save()
+r_080.save()
+r_081.save()
+r_082.save()
+r_083.save()
+r_084.save()
+r_085.save()
+r_086.save()
+r_087.save()
+r_088.save()
+r_089.save()
+r_090.save()
+r_091.save()
+r_092.save()
+r_093.save()
+r_094.save()
+r_095.save()
+r_096.save()
+r_097.save()
+r_098.save()
+r_099.save()
+r_100.save()
+
+# Link rooms together
+r_001.connectRooms(r_02, "e")
+r_001.connectRooms(r_011, "s")
+
+r_002.connectRooms(r_001, "w")
+r_002.connectRooms(r_003, "e")
+r_002.connectRooms(r_012, "s")
+
+r_003.connectRooms(r_002, "w")
+r_003.connectRooms(r_004, "e")
+r_003.connectRooms(r_013, "s")
+
+r_004.connectRooms(r_003, "w")
+r_004.connectRooms(r_005, "e")
+r_004.connectRooms(r_014, "s")
+
+r_005.connectRooms(r_004, "w")
+r_005.connectRooms(r_006, "e")
+r_005.connectRooms(r_015, "s")
+
+r_006.connectRooms(r_005, "w")
+r_006.connectRooms(r_007, "e")
+r_006.connectRooms(r_016, "s")
+
+r_007.connectRooms(r_006, "w")
+r_007.connectRooms(r_008, "e")
+r_007.connectRooms(r_017, "s")
+
+r_008.connectRooms(r_007, "w")
+r_008.connectRooms(r_009, "e")
+r_008.connectRooms(r_018, "s")
+
+r_009.connectRooms(r_008, "w")
+r_009.connectRooms(r_010, "e")
+r_009.connectRooms(r_019, "s")
+
+r_010.connectRooms(r_009, "w")
+r_010.connectRooms(r_020, "s")
+
+r_011.connectRooms(r_001, "n")
+r_011.connectRooms(r_021, "s")
+r_011.connectRooms(r_012, "e")
+
+r_012.connectRooms(r_002, "n")
+r_012.connectRooms(r_022, "s")
+r_012.connectRooms(r_011, "w")
+r_012.connectRooms(r_013, "e")
+
+r_013.connectRooms(r_003, "n")
+r_013.connectRooms(r_023, "s")
+r_013.connectRooms(r_012, "w")
+r_013.connectRooms(r_014, "e")
+
+r_014.connectRooms(r_004, "n")
+r_014.connectRooms(r_024, "s")
+r_014.connectRooms(r_013, "w")
+r_014.connectRooms(r_015, "e")
+
+r_015.connectRooms(r_005, "n")
+r_015.connectRooms(r_025, "s")
+r_015.connectRooms(r_014, "w")
+r_015.connectRooms(r_016, "e")
+
+r_016.connectRooms(r_006, "n")
+r_016.connectRooms(r_026, "s")
+r_016.connectRooms(r_015, "w")
+r_016.connectRooms(r_017, "e")
+
+r_017.connectRooms(r_007, "n")
+r_017.connectRooms(r_027, "s")
+r_017.connectRooms(r_016, "w")
+r_017.connectRooms(r_018, "e")
+
+r_018.connectRooms(r_008, "n")
+r_018.connectRooms(r_028, "s")
+r_018.connectRooms(r_017, "w")
+r_018.connectRooms(r_019, "e")
+
+r_019.connectRooms(r_009, "n")
+r_019.connectRooms(r_029, "s")
+r_019.connectRooms(r_018, "w")
+r_019.connectRooms(r_020, "e")
+
+r_020.connectRooms(r_010, "n")
+r_020.connectRooms(r_030, "s")
+r_020.connectRooms(r_019, "w")
+
+r_021.connectRooms(r_011, "n")
+r_021.connectRooms(r_031, "s")
+r_021.connectRooms(r_022, "e")
+
+r_022.connectRooms(r_012, "n")
+r_022.connectRooms(r_032, "s")
+r_022.connectRooms(r_021, "w")
+r_022.connectRooms(r_023, "e")
+
+r_023.connectRooms(r_013, "n")
+r_023.connectRooms(r_033, "s")
+r_023.connectRooms(r_022, "w")
+r_023.connectRooms(r_024, "e")
+
+r_024.connectRooms(r_014, "n")
+r_024.connectRooms(r_034, "s")
+r_024.connectRooms(r_023, "w")
+r_024.connectRooms(r_025, "e")
+
+r_025.connectRooms(r_015, "n")
+r_025.connectRooms(r_035, "s")
+r_025.connectRooms(r_024, "w")
+r_025.connectRooms(r_026, "e")
+
+r_026.connectRooms(r_016, "n")
+r_026.connectRooms(r_036, "s")
+r_026.connectRooms(r_025, "w")
+r_026.connectRooms(r_027, "e")
+
+r_027.connectRooms(r_017, "n")
+r_027.connectRooms(r_037, "s")
+r_027.connectRooms(r_026, "w")
+r_027.connectRooms(r_028, "e")
+
+r_028.connectRooms(r_018, "n")
+r_028.connectRooms(r_038, "s")
+r_028.connectRooms(r_027, "w")
+r_028.connectRooms(r_029, "e")
+
+r_029.connectRooms(r_019, "n")
+r_029.connectRooms(r_039, "s")
+r_029.connectRooms(r_028, "w")
+r_029.connectRooms(r_030, "e")
+
+r_030.connectRooms(r_020, "n")
+r_030.connectRooms(r_040, "s")
+r_030.connectRooms(r_029, "w")
+
+r_031.connectRooms(r_021, "n")
+r_031.connectRooms(r_041, "s")
+r_031.connectRooms(r_032, "e")
+
+r_032.connectRooms(r_022, "n")
+r_032.connectRooms(r_042, "s")
+r_032.connectRooms(r_031, "w")
+r_032.connectRooms(r_033, "e")
+
+r_033.connectRooms(r_023, "n")
+r_033.connectRooms(r_043, "s")
+r_033.connectRooms(r_032, "w")
+r_033.connectRooms(r_034, "e")
+
+r_034.connectRooms(r_024, "n")
+r_034.connectRooms(r_044, "s")
+r_034.connectRooms(r_033, "w")
+r_034.connectRooms(r_035, "e")
+
+r_035.connectRooms(r_025, "n")
+r_035.connectRooms(r_045, "s")
+r_035.connectRooms(r_034, "w")
+r_035.connectRooms(r_036, "e")
+
+r_036.connectRooms(r_026, "n")
+r_036.connectRooms(r_046, "s")
+r_036.connectRooms(r_035, "w")
+r_036.connectRooms(r_037, "e")
+
+r_037.connectRooms(r_027, "n")
+r_037.connectRooms(r_047, "s")
+r_037.connectRooms(r_036, "w")
+r_037.connectRooms(r_038, "e")
+
+r_038.connectRooms(r_028, "n")
+r_038.connectRooms(r_048, "s")
+r_038.connectRooms(r_037, "w")
+r_038.connectRooms(r_039, "e")
+
+r_039.connectRooms(r_029, "n")
+r_039.connectRooms(r_049, "s")
+r_039.connectRooms(r_038, "w")
+r_039.connectRooms(r_040, "e")
+
+r_040.connectRooms(r_030, "n")
+r_040.connectRooms(r_050, "s")
+r_040.connectRooms(r_039, "w")
+
+r_041.connectRooms(r_031, "n")
+r_041.connectRooms(r_051, "s")
+r_041.connectRooms(r_042, "e")
+
+r_042.connectRooms(r_032, "n")
+r_042.connectRooms(r_052, "s")
+r_042.connectRooms(r_041, "w")
+r_042.connectRooms(r_043, "e")
+
+r_043.connectRooms(r_033, "n")
+r_043.connectRooms(r_053, "s")
+r_043.connectRooms(r_042, "w")
+r_043.connectRooms(r_044, "e")
+
+r_044.connectRooms(r_034, "n")
+r_044.connectRooms(r_054, "s")
+r_044.connectRooms(r_043, "w")
+r_044.connectRooms(r_045, "e")
+
+r_045.connectRooms(r_035, "n")
+r_045.connectRooms(r_055, "s")
+r_045.connectRooms(r_044, "w")
+r_045.connectRooms(r_046, "e")
+
+r_046.connectRooms(r_036, "n")
+r_046.connectRooms(r_056, "s")
+r_046.connectRooms(r_045, "w")
+r_046.connectRooms(r_047, "e")
+
+r_047.connectRooms(r_037, "n")
+r_047.connectRooms(r_057, "s")
+r_047.connectRooms(r_046, "w")
+r_047.connectRooms(r_048, "e")
+
+r_048.connectRooms(r_038, "n")
+r_048.connectRooms(r_058, "s")
+r_048.connectRooms(r_047, "w")
+r_048.connectRooms(r_049, "e")
+
+r_049.connectRooms(r_039, "n")
+r_049.connectRooms(r_059, "s")
+r_049.connectRooms(r_048, "w")
+r_049.connectRooms(r_050, "e")
+
+r_050.connectRooms(r_040, "n")
+r_050.connectRooms(r_060, "s")
+r_050.connectRooms(r_049, "w")
+
+r_051.connectRooms(r_041, "n")
+r_051.connectRooms(r_061, "s")
+r_051.connectRooms(r_052, "e")
+
+r_052.connectRooms(r_042, "n")
+r_052.connectRooms(r_062, "s")
+r_052.connectRooms(r_051, "w")
+r_052.connectRooms(r_053, "e")
+
+r_053.connectRooms(r_043, "n")
+r_053.connectRooms(r_063, "s")
+r_053.connectRooms(r_052, "w")
+r_053.connectRooms(r_054, "e")
+
+r_054.connectRooms(r_044, "n")
+r_054.connectRooms(r_064, "s")
+r_054.connectRooms(r_053, "w")
+r_054.connectRooms(r_055, "e")
+
+r_055.connectRooms(r_045, "n")
+r_055.connectRooms(r_065, "s")
+r_055.connectRooms(r_054, "w")
+r_055.connectRooms(r_056, "e")
+
+r_056.connectRooms(r_046, "n")
+r_056.connectRooms(r_066, "s")
+r_056.connectRooms(r_055, "w")
+r_056.connectRooms(r_057, "e")
+
+r_057.connectRooms(r_047, "n")
+r_057.connectRooms(r_067, "s")
+r_057.connectRooms(r_056, "w")
+r_057.connectRooms(r_058, "e")
+
+r_058.connectRooms(r_048, "n")
+r_058.connectRooms(r_068, "s")
+r_058.connectRooms(r_057, "w")
+r_058.connectRooms(r_059, "e")
+
+r_059.connectRooms(r_049, "n")
+r_059.connectRooms(r_069, "s")
+r_059.connectRooms(r_058, "w")
+r_059.connectRooms(r_060, "e")
+
+r_060.connectRooms(r_050, "n")
+r_060.connectRooms(r_070, "s")
+r_060.connectRooms(r_059, "w")
+
+r_061.connectRooms(r_051, "n")
+r_061.connectRooms(r_071, "s")
+r_061.connectRooms(r_062, "e")
+
+r_062.connectRooms(r_052, "n")
+r_062.connectRooms(r_072, "s")
+r_062.connectRooms(r_061, "w")
+r_062.connectRooms(r_063, "e")
+
+r_063.connectRooms(r_053, "n")
+r_063.connectRooms(r_073, "s")
+r_063.connectRooms(r_062, "w")
+r_063.connectRooms(r_064, "e")
+
+r_064.connectRooms(r_054, "n")
+r_064.connectRooms(r_074, "s")
+r_064.connectRooms(r_063, "w")
+r_064.connectRooms(r_065, "e")
+
+r_065.connectRooms(r_055, "n")
+r_065.connectRooms(r_075, "s")
+r_065.connectRooms(r_064, "w")
+r_065.connectRooms(r_066, "e")
+
+r_066.connectRooms(r_056, "n")
+r_066.connectRooms(r_076, "s")
+r_066.connectRooms(r_065, "w")
+r_066.connectRooms(r_067, "e")
+
+r_067.connectRooms(r_057, "n")
+r_067.connectRooms(r_077, "s")
+r_067.connectRooms(r_066, "w")
+r_067.connectRooms(r_068, "e")
+
+r_068.connectRooms(r_058, "n")
+r_068.connectRooms(r_078, "s")
+r_068.connectRooms(r_067, "w")
+r_068.connectRooms(r_069, "e")
+
+r_069.connectRooms(r_059, "n")
+r_069.connectRooms(r_079, "s")
+r_069.connectRooms(r_068, "w")
+r_069.connectRooms(r_070, "e")
+
+r_070.connectRooms(r_060, "n")
+r_070.connectRooms(r_080, "s")
+r_070.connectRooms(r_069, "w")
+
+r_071.connectRooms(r_061, "n")
+r_071.connectRooms(r_081, "s")
+r_071.connectRooms(r_072, "e")
+
+r_072.connectRooms(r_062, "n")
+r_072.connectRooms(r_082, "s")
+r_072.connectRooms(r_071, "w")
+r_072.connectRooms(r_073, "e")
+
+r_073.connectRooms(r_063, "n")
+r_073.connectRooms(r_083, "s")
+r_073.connectRooms(r_072, "w")
+r_073.connectRooms(r_074, "e")
+
+r_074.connectRooms(r_064, "n")
+r_074.connectRooms(r_084, "s")
+r_074.connectRooms(r_073, "w")
+r_074.connectRooms(r_075, "e")
+
+r_075.connectRooms(r_065, "n")
+r_075.connectRooms(r_085, "s")
+r_075.connectRooms(r_074, "w")
+r_075.connectRooms(r_076, "e")
+
+r_076.connectRooms(r_066, "n")
+r_076.connectRooms(r_086, "s")
+r_076.connectRooms(r_075, "w")
+r_076.connectRooms(r_077, "e")
+
+r_077.connectRooms(r_067, "n")
+r_077.connectRooms(r_087, "s")
+r_077.connectRooms(r_076, "w")
+r_077.connectRooms(r_078, "e")
+
+r_078.connectRooms(r_068, "n")
+r_078.connectRooms(r_088, "s")
+r_078.connectRooms(r_077, "w")
+r_078.connectRooms(r_079, "e")
+
+r_079.connectRooms(r_069, "n")
+r_079.connectRooms(r_089, "s")
+r_079.connectRooms(r_078, "w")
+r_079.connectRooms(r_080, "e")
+
+r_080.connectRooms(r_070, "n")
+r_080.connectRooms(r_090, "s")
+r_080.connectRooms(r_079, "w")
+
+r_081.connectRooms(r_071, "n")
+r_081.connectRooms(r_091, "s")
+r_081.connectRooms(r_082, "e")
+
+r_082.connectRooms(r_072, "n")
+r_082.connectRooms(r_092, "s")
+r_082.connectRooms(r_081, "w")
+r_082.connectRooms(r_083, "e")
+
+r_083.connectRooms(r_073, "n")
+r_083.connectRooms(r_093, "s")
+r_083.connectRooms(r_082, "w")
+r_083.connectRooms(r_084, "e")
+
+r_084.connectRooms(r_074, "n")
+r_084.connectRooms(r_094, "s")
+r_084.connectRooms(r_083, "w")
+r_084.connectRooms(r_085, "e")
+
+r_085.connectRooms(r_075, "n")
+r_085.connectRooms(r_095, "s")
+r_085.connectRooms(r_084, "w")
+r_085.connectRooms(r_086, "e")
+
+r_086.connectRooms(r_076, "n")
+r_086.connectRooms(r_096, "s")
+r_086.connectRooms(r_085, "w")
+r_086.connectRooms(r_087, "e")
+
+r_087.connectRooms(r_077, "n")
+r_087.connectRooms(r_097, "s")
+r_087.connectRooms(r_086, "w")
+r_087.connectRooms(r_088, "e")
+
+r_088.connectRooms(r_078, "n")
+r_088.connectRooms(r_098, "s")
+r_088.connectRooms(r_087, "w")
+r_088.connectRooms(r_089, "e")
+
+r_089.connectRooms(r_079, "n")
+r_089.connectRooms(r_099, "s")
+r_089.connectRooms(r_088, "w")
+r_089.connectRooms(r_090, "e")
+
+r_090.connectRooms(r_080, "n")
+r_090.connectRooms(r_100, "s")
+r_090.connectRooms(r_089, "w")
+
+r_091.connectRooms(r_081, "n")
+r_091.connectRooms(r_092, "e")
+
+r_092.connectRooms(r_082, "n")
+r_092.connectRooms(r_091, "w")
+r_092.connectRooms(r_093, "e")
+
+r_093.connectRooms(r_083, "n")
+r_093.connectRooms(r_092, "w")
+r_093.connectRooms(r_094, "e")
+
+r_094.connectRooms(r_084, "n")
+r_094.connectRooms(r_093, "w")
+r_094.connectRooms(r_095, "e")
+
+r_095.connectRooms(r_085, "n")
+r_095.connectRooms(r_094, "w")
+r_095.connectRooms(r_096, "e")
+
+r_096.connectRooms(r_086, "n")
+r_096.connectRooms(r_095, "w")
+r_096.connectRooms(r_097, "e")
+
+r_097.connectRooms(r_087, "n")
+r_097.connectRooms(r_096, "w")
+r_097.connectRooms(r_098, "e")
+
+r_098.connectRooms(r_088, "n")
+r_098.connectRooms(r_097, "w")
+r_098.connectRooms(r_099, "e")
+
+r_099.connectRooms(r_089, "n")
+r_099.connectRooms(r_098, "w")
+r_099.connectRooms(r_100, "e")
+
+r_100.connectRooms(r_090, "n")
+r_100.connectRooms(r_099, "w")
 
 
-d = Dungeon(11, 11)
-d.generate_dungeon()
+# [001][002][003][004][005][006][007][008][009][010]
+# [011][012][013][014][015][016][017][018][019][020]
+# [021][022][023][024][025][026][027][028][029][030]
+# [031][032][033][034][035][036][037][038][039][040]
+# [041][042][043][044][045][046][047][048][049][050]
+# [051][052][053][054][055][056][057][058][059][060]
+# [061][062][063][064][065][066][067][068][069][070]
+# [071][072][073][074][075][076][077][078][079][080]
+# [081][082][083][084][085][086][087][088][089][090]
+# [091][092][093][094][095][096][097][098][099][100]
+
 
 players = Player.objects.all()
 for p in players:
-    p.currentRoom = 0
+    p.currentRoom = r_outside.id
     p.save()
 
-
-# from django.contrib.auth.models import User
-# from adventure.models import Player, Room
-
-
-# Room.objects.all().delete()
-
-# r_outside = Room(title="Outside Cave Entrance", description="North of you, the cave mount beckons")
-
-# r_foyer = Room(title="Foyer", description="""Dim light filters in from the south. Dusty passages run north and east.""")
-
-# r_overlook = Room(title="Grand Overlook", description="""A steep cliff appears before you, falling into the darkness. Ahead to the north, a light flickers in the distance, but there is no way across the chasm.""")
-
-# r_narrow = Room(title="Narrow Passage", description="""The narrow passage bends here from west to north. The smell of gold permeates the air.""")
-
-# r_treasure = Room(title="Treasure Chamber", description="""You've found the long-lost treasure chamber! Sadly, it has already been completely emptied by earlier adventurers. The only exit is to the south.""")
-
-# r_outside.save()
-# r_foyer.save()
-# r_overlook.save()
-# r_narrow.save()
-# r_treasure.save()
-
-# # Link rooms together
-# r_outside.connectRooms(r_foyer, "n")
-# r_foyer.connectRooms(r_outside, "s")
-
-# r_foyer.connectRooms(r_overlook, "n")
-# r_overlook.connectRooms(r_foyer, "s")
-
-# r_foyer.connectRooms(r_narrow, "e")
-# r_narrow.connectRooms(r_foyer, "w")
-
-# r_narrow.connectRooms(r_treasure, "n")
-# r_treasure.connectRooms(r_narrow, "s")
-
-# players = Player.objects.all()
-# for p in players:
-#     p.currentRoom = r_outside.id
-#     p.save()
