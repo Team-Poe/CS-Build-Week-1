@@ -206,7 +206,7 @@ r_099.save()
 r_100.save()
 
 # Link rooms together
-r_001.connectRooms(r_02, "e")
+r_001.connectRooms(r_002, "e")
 r_001.connectRooms(r_011, "s")
 
 r_002.connectRooms(r_001, "w")
@@ -666,6 +666,10 @@ r_099.connectRooms(r_100, "e")
 r_100.connectRooms(r_090, "n")
 r_100.connectRooms(r_099, "w")
 
+players = Player.objects.all()
+for p in players:
+    p.currentRoom = r_055.id
+    p.save()
 
 # [001][002][003][004][005][006][007][008][009][010]
 # [011][012][013][014][015][016][017][018][019][020]
@@ -677,10 +681,3 @@ r_100.connectRooms(r_099, "w")
 # [071][072][073][074][075][076][077][078][079][080]
 # [081][082][083][084][085][086][087][088][089][090]
 # [091][092][093][094][095][096][097][098][099][100]
-
-
-players = Player.objects.all()
-for p in players:
-    p.currentRoom = r_outside.id
-    p.save()
-
